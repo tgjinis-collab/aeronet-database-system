@@ -44,14 +44,14 @@ const PORT = process.env.PORT || 3000;
 
 // ── PostgreSQL ────────────────────────────────────────────────────────────────
 const pgPool = new Pool({
-  host:     process.env.PG_HOST     || "127.0.0.1",
+  host:     process.env.PG_HOST     || "ep-round-credit-agupbcie-pooler.c-2.eu-central-1.aws.neon.tech",
   port:     parseInt(process.env.PG_PORT || "5432"),
   database: process.env.PG_DATABASE || "aeronetsql",
-  user:     process.env.PG_USER     || "postgres",
-  password: process.env.PG_PASSWORD || "2002",
+  user:     process.env.PG_USER     || "neondb_owner",
+  password: process.env.PG_PASSWORD || "npg_k5Z2UJTWFblm",
   max:      10,
   idleTimeoutMillis: 30000,
-  ssl: process.env.PG_SSL === "false" ? false : { rejectUnauthorized: false },
+  ssl: (process.env.PG_SSL === "true") ? { rejectUnauthorized: false } : false,
 });
 
 pgPool.on("error", (err) => {
