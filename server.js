@@ -51,6 +51,7 @@ const pgPool = new Pool({
   password: process.env.PG_PASSWORD || "postgres",
   max:      10,
   idleTimeoutMillis: 30000,
+  ssl: process.env.PG_SSL === "false" ? false : { rejectUnauthorized: false },
 });
 
 pgPool.on("error", (err) => {
