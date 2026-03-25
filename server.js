@@ -44,11 +44,11 @@ const PORT = process.env.PORT || 3000;
 
 // ── PostgreSQL ────────────────────────────────────────────────────────────────
 const pgPool = new Pool({
-  host:     process.env.PG_HOST     || "localhost",
+  host:     process.env.PG_HOST     || "127.0.0.1",
   port:     parseInt(process.env.PG_PORT || "5432"),
-  database: process.env.PG_DATABASE || "aeronetb",
+  database: process.env.PG_DATABASE || "aeronetsql",
   user:     process.env.PG_USER     || "postgres",
-  password: process.env.PG_PASSWORD || "postgres",
+  password: process.env.PG_PASSWORD || "2002",
   max:      10,
   idleTimeoutMillis: 30000,
   ssl: process.env.PG_SSL === "false" ? false : { rejectUnauthorized: false },
